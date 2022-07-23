@@ -1,0 +1,38 @@
+{
+  "name": "Product",
+  "fields": [
+    {
+      "fieldName": "productName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "vendor",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "vendor",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "subCategory",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "subCategory",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220723182231",
+  "entityTableName": "product",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["vcart"]
+}

@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subCategory">
+            <h2><span jhiTranslate="vcartApp.subCategory.detail.title">Sub Category</span> {{ subCategory.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="vcartApp.subCategory.subCategoryName">Sub Category Name</span></dt>
+                <dd>
+                    <span>{{ subCategory.subCategoryName }}</span>
+                </dd>
+                <dt><span jhiTranslate="vcartApp.subCategory.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="subCategory.categoryId">
+                        <a [routerLink]="['/category', subCategory.categoryId, 'view']">{{ subCategory.categoryId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sub-category', subCategory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

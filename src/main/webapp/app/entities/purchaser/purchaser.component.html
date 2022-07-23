@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="vcartApp.purchaser.home.title">Purchasers</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-purchaser" [routerLink]="['/purchaser/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="vcartApp.purchaser.home.createLabel">
+            Create a new Purchaser
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="purchasers?.length === 0">
+        <span jhiTranslate="vcartApp.purchaser.home.notFound">No purchasers found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="purchasers && purchasers.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="vcartApp.purchaser.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="vcartApp.purchaser.phone">Phone</span></th>
+                    <th scope="col" ><span jhiTranslate="vcartApp.purchaser.emailId">Email Id</span></th>
+                    <th scope="col" ><span jhiTranslate="vcartApp.purchaser.address">Address</span></th>
+                    <th scope="col" ><span jhiTranslate="vcartApp.purchaser.gstNumber">Gst Number</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let purchaser of purchasers ;trackBy: trackId">
+                    <td><a [routerLink]="['/purchaser', purchaser.id, 'view']">{{ purchaser.id }}</a></td>
+                    <td>{{ purchaser.name }}</td>
+                    <td>{{ purchaser.phone }}</td>
+                    <td>{{ purchaser.emailId }}</td>
+                    <td>{{ purchaser.address }}</td>
+                    <td>{{ purchaser.gstNumber }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/purchaser', purchaser.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/purchaser', purchaser.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(purchaser)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

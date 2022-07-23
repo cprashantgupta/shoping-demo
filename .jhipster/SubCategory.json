@@ -1,0 +1,36 @@
+{
+  "name": "SubCategory",
+  "fields": [
+    {
+      "fieldName": "subCategoryName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "subCategory",
+      "relationshipName": "product"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "category",
+      "otherEntityRelationshipName": "subCategory",
+      "relationshipName": "category",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20220723182131",
+  "entityTableName": "sub_category",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["vcart"]
+}

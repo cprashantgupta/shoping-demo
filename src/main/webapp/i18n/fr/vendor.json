@@ -1,0 +1,27 @@
+{
+  "vcartApp": {
+    "vendor": {
+      "home": {
+        "title": "Vendors",
+        "createLabel": "Créer un nouveau Vendor",
+        "createOrEditLabel": "Créer ou éditer un Vendor",
+        "notFound": "Aucun Vendor trouvé"
+      },
+      "created": "Un nouveau Vendor a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Vendor avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Vendor avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Vendor {{ id }} ?"
+      },
+      "detail": {
+        "title": "Vendor"
+      },
+      "name": "Name",
+      "phone": "Phone",
+      "emailId": "Email Id",
+      "address": "Address",
+      "gstNumber": "Gst Number",
+      "product": "Product"
+    }
+  }
+}

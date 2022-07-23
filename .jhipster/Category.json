@@ -1,0 +1,29 @@
+{
+  "name": "Category",
+  "fields": [
+    {
+      "fieldName": "categoryName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "subCategory",
+      "otherEntityRelationshipName": "category",
+      "relationshipName": "subCategory"
+    }
+  ],
+  "changelogDate": "20220723182031",
+  "entityTableName": "category",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["vcart"]
+}

@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-product-heading" jhiTranslate="vcartApp.product.home.createOrEditLabel">Create or edit a Product</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vcartApp.product.productName" for="field_productName">Product Name</label>
+                    <input type="text" class="form-control" name="productName" id="field_productName"
+                           formControlName="productName"/>
+                    <div *ngIf="editForm.get('productName')!.invalid && (editForm.get('productName')!.dirty || editForm.get('productName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('productName')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="vcartApp.product.vendor" for="field_vendors">Vendor</label>
+                    <select class="form-control" id="field_vendors" multiple name="vendors" formControlName="vendors">
+                        <option [ngValue]="getSelected(editForm.get('vendors')!.value, vendorOption)" *ngFor="let vendorOption of vendors; trackBy: trackById">{{ vendorOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vcartApp.product.subCategory" for="field_subCategory">Sub Category</label>
+                    <select class="form-control" id="field_subCategory" name="subCategory" formControlName="subCategoryId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="subCategoryOption.id" *ngFor="let subCategoryOption of subcategories; trackBy: trackById">{{ subCategoryOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

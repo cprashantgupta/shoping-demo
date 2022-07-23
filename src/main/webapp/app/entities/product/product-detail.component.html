@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="product">
+            <h2><span jhiTranslate="vcartApp.product.detail.title">Product</span> {{ product.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="vcartApp.product.productName">Product Name</span></dt>
+                <dd>
+                    <span>{{ product.productName }}</span>
+                </dd>
+                <dt><span jhiTranslate="vcartApp.product.vendor">Vendor</span></dt>
+                <dd>
+                    <span *ngFor="let vendor of product.vendors; let last = last">
+                        <a [routerLink]="['/vendor', vendor?.id, 'view']">{{ vendor.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="vcartApp.product.subCategory">Sub Category</span></dt>
+                <dd>
+                    <div *ngIf="product.subCategoryId">
+                        <a [routerLink]="['/sub-category', product.subCategoryId, 'view']">{{ product.subCategoryId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product', product.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

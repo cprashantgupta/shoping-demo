@@ -1,0 +1,26 @@
+{
+  "vcartApp": {
+    "purchaser": {
+      "home": {
+        "title": "Purchasers",
+        "createLabel": "Créer un nouveau Purchaser",
+        "createOrEditLabel": "Créer ou éditer un Purchaser",
+        "notFound": "Aucun Purchaser trouvé"
+      },
+      "created": "Un nouveau Purchaser a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Purchaser avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Purchaser avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Purchaser {{ id }} ?"
+      },
+      "detail": {
+        "title": "Purchaser"
+      },
+      "name": "Name",
+      "phone": "Phone",
+      "emailId": "Email Id",
+      "address": "Address",
+      "gstNumber": "Gst Number"
+    }
+  }
+}
